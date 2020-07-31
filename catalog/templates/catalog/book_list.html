@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h3>Books List</h3>
+
+    {% if book_list %}<!--here book_list and context object are alias, both will work-->
+    <ul>
+        {% for book in book_list %}
+            <li>
+                <a href="{{book.get_absolute_url}}">{{book.title}}</a>({{book.author}})
+            </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+        <p>There are no books in the library</p>
+    {% endif %}
+{% endblock %}
